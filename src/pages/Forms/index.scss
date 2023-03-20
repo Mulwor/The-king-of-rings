@@ -1,73 +1,48 @@
-.uniqiue__button {
-  margin-top: 10px;
-  width: 170px;
-  height: 40px;
-  color: #fff;
-  border-radius: 5px;
-  padding: 10px 25px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 500; 
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-  7px 7px 20px 0px rgba(0,0,0,.1),
-  4px 4px 5px 0px rgba(0,0,0,.1);
-  outline: none;
-}
-
-.button {
-  border: none;
-  color: #000;
-}
-
-.button:after {
-  position: absolute;
-  content: "";
-  width: 0;
-  height: 100%;
-  top: 0;
-  left: 0;
-  direction: rtl;
-  z-index: -1;
-  box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
-  transition: all 0.3s ease;
-}
-
-.button:hover {
-  color: #000;
-}
-
-.button:hover:after {
-  left: auto;
-  right: 0;
-  width: 100%;
-}
-
-.button:active {
-  top: 2px;
-}
-
-.inputForms{
-  margin-left: 18px;
-}
-
 .form {
   display: flex;
   flex-direction: column;
 }
 
-.labels {
-  margin-top: 10px;
-  width: 300px;
-}
+.form {
+  background-color: antiquewhite;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
 
-.choose {
-  width: 133px;
-}
+  .text {
+    border-radius: 6px;
+    border-color: rgb(0, 149, 255);
+  }
 
-.country {
-    margin-top: 10px;
-    margin-bottom: 10px;
+  .text:focus {
+    color: rgb(56, 56, 100);
+    border-color: rgb(0, 149, 255);
+  }
+
+  .firstname {
+    margin-left: 27px;
+  }
+
+  .secondname {
+    margin-left: 11px;
+  }
+
+  .email {
+    margin-left: 55px;
+  }
+
+  .choose {
+    margin-left: 24px;
+  }
+
+  .gender {
+    margin-left: 124px;
+  }
+
+  .data {
+    margin-left: 50px;
+  }
 }

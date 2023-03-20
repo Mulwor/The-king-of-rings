@@ -76,14 +76,14 @@ export class Form extends React.Component<Record<string, unknown>, { cards: Arra
             <div className="item">
               <label className="labels">
                 Firstname:
-                <input type="text" id="name" className="inputForms" ref={this.firstname} />
+                <input type="text" id="name" className="text firstname" ref={this.firstname} />
               </label>
             </div>
 
             <div className="item">
               <label className="labels">
                 Secondname:
-                <input type="text" id="surname" className="inputFormsS" ref={this.secondname} />
+                <input type="text" id="surname" className="text secondname" ref={this.secondname} />
               </label>
             </div>
 
@@ -94,7 +94,7 @@ export class Form extends React.Component<Record<string, unknown>, { cards: Arra
                   type="email"
                   name="email"
                   id="email"
-                  className="inputFormsS"
+                  className="text email"
                   ref={this.email}
                 />
               </label>
@@ -122,9 +122,9 @@ export class Form extends React.Component<Record<string, unknown>, { cards: Arra
               </label>
             </div>
 
-            <label className="gender">
+            <label>
               Your gender:
-              <select className="you" ref={this.gender}>
+              <select className="gender" ref={this.gender}>
                 <option value="Men">Men</option>
                 <option value="Women">Women</option>
                 <option value="It">It</option>
@@ -134,19 +134,19 @@ export class Form extends React.Component<Record<string, unknown>, { cards: Arra
             <div className="form-item" ref={this.date}>
               <label className="form-item-label">
                 Your birthday in:
-                <input type="date" ref={this.date} />
+                <input type="date" className="data" />
               </label>
             </div>
 
             <div className="form-item">
-              <label className="form-item-label">
-                Upload file
-                <input type="file" ref={this.photo} />
+              <label className="form-photo">
+                Photo:
+                <input type="file" ref={this.photo} className="photo" />
               </label>
             </div>
 
             <div>
-              <input type="checkbox" id="coding" name="interest" value="coding" ref={this.agree} />
+              <input type="radio" id="coding" name="interest" value="coding" ref={this.agree} />
               <label>
                 Ваши данные будут использованы в умышленных целях и будут переданы в ФБР{' '}
               </label>
