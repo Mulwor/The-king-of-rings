@@ -1,7 +1,14 @@
 import React from 'react';
+import { CardList } from '../../components/FormCard';
+import { Form } from './Form';
 
-export class AnotherCard extends React.Component {
+export class Forms extends React.Component {
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <Form />
+        <CardList />
+      </div>
+    );
   }
 }

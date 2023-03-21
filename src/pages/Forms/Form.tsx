@@ -1,6 +1,4 @@
 import React, { FormEvent } from 'react';
-import { AnotherCard } from './Card';
-import './index.scss';
 
 type TCardData = {
   firstname: string;
@@ -132,9 +130,9 @@ export class Form extends React.Component<Record<string, unknown>, { cards: Arra
             </label>
 
             <div className="form-item" ref={this.date}>
-              <label className="form-item-label">
+              <label>
                 Your birthday in:
-                <input type="date" className="data" />
+                <input type="date" className="data" min="1970-01-01" max="23-11-2010" />
               </label>
             </div>
 
@@ -146,22 +144,25 @@ export class Form extends React.Component<Record<string, unknown>, { cards: Arra
             </div>
 
             <div>
-              <input type="radio" id="coding" name="interest" value="coding" ref={this.agree} />
+              <input
+                type="radio"
+                id="coding"
+                name="interest"
+                value="coding"
+                className="circle"
+                ref={this.agree}
+              />
               <label>
                 Ваши данные будут использованы в умышленных целях и будут переданы в ФБР{' '}
               </label>
             </div>
 
             {/* Кнопка для создания карточки */}
-            <button className="uniqiue__button button">Создать карточку</button>
+            <button className="button">Создать карточку</button>
           </form>
         </div>
 
-        <div>
-          {this.state.cards.map((element, index) => (
-            <AnotherCard key={index} />
-          ))}
-        </div>
+        <div></div>
       </>
     );
   }

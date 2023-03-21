@@ -1,0 +1,55 @@
+.header {
+    padding: 10px;
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.529);
+  
+    .wrapper {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+  
+      .logotype {
+        cursor: pointer;
+      }
+  
+      .navigation {
+        display: flex;
+        align-items: center;
+      }    
+  
+      a {
+        font-size: 22px;
+        text-decoration: none; 
+        font-weight: 400;
+        color: white;
+      }
+      
+      a:nth-child(2) {
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+      
+      
+      a:active {
+        color: #f00;            /* Цвет активной ссылки */ 
+      } 
+  
+      .active {
+        color:  rgb(0, 0, 0);
+        cursor: default;
+      }
+    }
+  
+  
+  }
+  
+  
+   @media (max-width: 380px) {
+      .wrapper {
+          display: flex;
+          justify-content: center;
+      }
+  }
+  
+  

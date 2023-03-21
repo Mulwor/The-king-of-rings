@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+  
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+      width: 100%;
+      max-width: 248px;
+      cursor: pointer;
+      margin-left: 20px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+  
+      img {
+        width: 100%;
+        height: auto;
+      }
+  
+      .box {
+        padding: 2px 16px;
+      }
+    }
+  
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+    }    
+  }
+  
