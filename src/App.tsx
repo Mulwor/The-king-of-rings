@@ -4,7 +4,7 @@ import { Layout } from './components/Layout';
 import { About } from './pages/About/About';
 import { Home } from './pages/Home/Home';
 import { Error } from './pages/Error/Error';
-import { Forms } from './pages/Forms/Card';
+import { Forms } from './pages/Forms/Forms';
 import '../src/scss/style.scss';
 
 export class App extends React.Component {
