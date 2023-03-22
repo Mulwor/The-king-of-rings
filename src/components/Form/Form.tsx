@@ -1,17 +1,11 @@
 import React, { FormEvent } from 'react';
+import { TFormList } from 'types';
 
-type TCardData = {
-  firstname: string;
-  secondname: string;
-  email: string;
-  date: string;
-  photo: string;
-  agree: boolean;
-  country: string;
-  gender: string;
+type createdCardT = {
+  createdCard: (data: TFormList) => void;
 };
 
-export class Form extends React.Component<Record<string, unknown>, { cards: Array<TCardData> }> {
+export class Form extends React.Component<createdCardT> {
   firstname: React.RefObject<HTMLInputElement>;
   secondname: React.RefObject<HTMLInputElement>;
   email: React.RefObject<HTMLInputElement>;
@@ -22,13 +16,8 @@ export class Form extends React.Component<Record<string, unknown>, { cards: Arra
   agree: React.RefObject<HTMLInputElement>;
   form: React.RefObject<HTMLFormElement>;
 
-  constructor(props: Record<string, string>) {
+  constructor(props: createdCardT) {
     super(props);
-    this.state = {
-      cards: [],
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-
     this.firstname = React.createRef();
     this.secondname = React.createRef();
     this.email = React.createRef();
@@ -41,11 +30,8 @@ export class Form extends React.Component<Record<string, unknown>, { cards: Arra
   }
 
   handleSubmit(event: FormEvent<HTMLFormElement>) {
-    console.log('Проверка работы опшинсов: ' + this.gender.current!.value);
-    console.log('Проверка работы имени: ' + this.firstname.current!.value);
     event.preventDefault();
-
-    const informationCard: TCardData = {
+    const cardObj = {
       firstname: this.firstname.current!.value,
       secondname: this.secondname.current!.value,
       email: this.email.current!.value,
@@ -53,13 +39,8 @@ export class Form extends React.Component<Record<string, unknown>, { cards: Arra
       gender: this.gender.current!.value,
       date: this.date.current!.value,
       photo: this.photo.current!.value,
-      agree: this.agree.current!.checked,
     };
-
-    const cardsCopy = [...this.state.cards];
-    cardsCopy.push(informationCard);
-    this.setState({ cards: cardsCopy });
-    event.preventDefault();
+    this.props.createdCard(cardObj);
   }
 
   render() {
@@ -153,11 +134,10 @@ export class Form extends React.Component<Record<string, unknown>, { cards: Arra
                 ref={this.agree}
               />
               <label>
-                Ваши данные будут использованы в умышленных целях и будут переданы в ФБР{' '}
+                Ваши данные будут использованы в умышленных целях и будут переданы в ФБР
               </label>
             </div>
 
-            {/* Кнопка для создания карточки */}
             <button className="button">Создать карточку</button>
           </form>
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { TFormListProps, List } from 'types';
-import Next from './Next';
+import { FormCard } from './FormCard';
 
 export class FormList extends React.Component<List, TFormListProps> {
   constructor(props: List) {
@@ -8,19 +8,20 @@ export class FormList extends React.Component<List, TFormListProps> {
   }
   render() {
     return (
-      <ul>
+      <div>
         {this.props.formList.map((list) => (
-          <Next
+          <FormCard
             key={list.index}
-            firstName={list.firstName}
-            secondName={list.secondName}
+            firstname={list.firstname}
+            secondname={list.secondname}
             email={list.email}
             gender={list.gender}
             country={list.country}
             date={list.date}
+            photo={list.photo}
           />
         ))}
-      </ul>
+      </div>
     );
   }
 }

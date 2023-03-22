@@ -7,13 +7,13 @@ export type State = {
 };
 
 export type TFormList = {
-  firstName?: string;
-  secondName?: string;
-  email?: string;
-  country?: string;
-  gender?: string;
-  date?: string;
-  photo?: string;
+  firstname: string;
+  secondname: string;
+  email: string;
+  country: string;
+  gender: string;
+  date: string;
+  photo: string;
   index?: string;
 };
 
