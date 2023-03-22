@@ -9,9 +9,9 @@ export class FormList extends React.Component<List, TFormListProps> {
   render() {
     return (
       <div>
-        {this.props.formList.map((list) => (
+        {this.props.formList.map((list, i) => (
           <FormCard
-            key={list.index}
+            key={i}
             firstname={list.firstname}
             secondname={list.secondname}
             email={list.email}

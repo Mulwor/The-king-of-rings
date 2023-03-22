@@ -38,7 +38,7 @@ export class Form extends React.Component<createdCardT> {
       country: this.country.current!.value,
       gender: this.gender.current!.value,
       date: this.date.current!.value,
-      photo: this.photo.current!.value,
+      photo: URL.createObjectURL(this.photo.current!.files),
     };
     this.props.createdCard(cardObj);
   }
@@ -83,20 +83,20 @@ export class Form extends React.Component<createdCardT> {
               <label className="country">
                 Where are you from:
                 <select className="choose" ref={this.country}>
-                  <option value="denmark">Denmark</option>
-                  <option value="russia">Russia</option>
-                  <option value="england">England</option>
-                  <option value="wales">Wales </option>
-                  <option value="united Kingdom">United Kingdom</option>
-                  <option value="belarus">Belarus</option>
-                  <option value="germany">Germany</option>
-                  <option value="belgium">Belgium</option>
-                  <option value="switzerland">Switzerland</option>
-                  <option value="albania">Albania</option>
-                  <option value="portugal">Portugal</option>
-                  <option value="azerbaijan">Azerbaijan</option>
-                  <option value="greece">Greece</option>
-                  <option value="serbia">Serbia</option>
+                  <option value="Denmark">Denmark</option>
+                  <option value="Russia">Russia</option>
+                  <option value="England">England</option>
+                  <option value="Wales">Wales </option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="Belarus">Belarus</option>
+                  <option value="Germany">Germany</option>
+                  <option value="Belgium">Belgium</option>
+                  <option value="Switzerland">Switzerland</option>
+                  <option value="Albania">Albania</option>
+                  <option value="Portugal">Portugal</option>
+                  <option value="Azerbaijan">Azerbaijan</option>
+                  <option value="Greece">Greece</option>
+                  <option value="Serbia">Serbia</option>
                 </select>
               </label>
             </div>
@@ -110,17 +110,17 @@ export class Form extends React.Component<createdCardT> {
               </select>
             </label>
 
-            <div className="form-item" ref={this.date}>
+            <div className="form-item">
               <label>
                 Your birthday in:
-                <input type="date" className="data" min="1970-01-01" max="23-11-2010" />
+                <input type="date" className="data" ref={this.date} />
               </label>
             </div>
 
             <div className="form-item">
               <label className="form-photo">
                 Photo:
-                <input type="file" ref={this.photo} className="photo" />
+                <input type="file" className="photo" ref={this.photo} />
               </label>
             </div>
 

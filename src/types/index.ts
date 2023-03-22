@@ -14,7 +14,6 @@ export type TFormList = {
   gender: string;
   date: string;
   photo: string;
-  index?: string;
 };
 
 export type TFormListProps = {
