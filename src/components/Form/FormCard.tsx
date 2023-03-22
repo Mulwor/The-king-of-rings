@@ -6,13 +6,13 @@ export class FormCard extends React.Component<TFormList> {
     return (
       <div className="ford">
         <div className="wrapper">
-          <div>Имя: {this.props.firstname}</div>
-          <div>Фамилия: {this.props.secondname}</div>
-          <div>Емейл: {this.props.email}</div>
-          <div>Пол: {this.props.gender}</div>
-          <div>Страна: {this.props.country}</div>
-          <div>День рождения: {this.props.date}</div>
-          <div>Фотография: {this.props.photo}</div>
+          <img className="avatar" src={this.props.photo} alt="фотография" />
+          <div>Your firstname: {this.props.firstname}</div>
+          <div>Your secondname: {this.props.secondname}</div>
+          <div>Your cmail: {this.props.email}</div>
+          <div>Your gender: {this.props.gender}</div>
+          <div>Your country: {this.props.country}</div>
+          <div>Your birthday: {this.props.date}</div>
         </div>
       </div>
     );

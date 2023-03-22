@@ -13,7 +13,7 @@ export type TFormList = {
   country: string;
   gender: string;
   date: string;
-  photo: string;
+  photo?: string;
 };
 
 export type TFormListProps = {

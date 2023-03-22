@@ -38,7 +38,7 @@ export class Form extends React.Component<createdCardT> {
       country: this.country.current!.value,
       gender: this.gender.current!.value,
       date: this.date.current!.value,
-      photo: URL.createObjectURL(this.photo.current!.files),
+      photo: this.photo.current?.files ? URL.createObjectURL(this.photo.current.files[0]) : '',
     };
     this.props.createdCard(cardObj);
   }
@@ -120,13 +120,13 @@ export class Form extends React.Component<createdCardT> {
             <div className="form-item">
               <label className="form-photo">
                 Photo:
-                <input type="file" className="photo" ref={this.photo} />
+                <input type="file" className="photo" ref={this.photo} required />
               </label>
             </div>
 
             <div>
               <input
-                type="radio"
+                type="checkbox"
                 id="coding"
                 name="interest"
                 value="coding"
