@@ -13,7 +13,7 @@ export class Forms extends React.Component<TFormListProps, List> {
 
   createCard = (formList: TFormList) => {
     this.setState({
-      formList: [...this.state.formList, formList],
+      formList: [formList, ...this.state.formList],
     });
     console.log(this.state.formList);
   };

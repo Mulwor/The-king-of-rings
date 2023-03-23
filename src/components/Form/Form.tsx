@@ -40,6 +40,7 @@ export class Form extends React.Component<createdCardT> {
       date: this.date.current!.value,
       photo: this.photo.current?.files ? URL.createObjectURL(this.photo.current.files[0]) : '',
     };
+    this.form.current!.reset();
     this.props.createdCard(cardObj);
   }
 
@@ -51,7 +52,7 @@ export class Form extends React.Component<createdCardT> {
 
           <div>Заполните данную форму, чтобы увидеть свою карточку</div>
 
-          <form className="form" onSubmit={(event) => this.handleSubmit(event)}>
+          <form className="form" onSubmit={(event) => this.handleSubmit(event)} ref={this.form}>
             <div className="item">
               <label className="labels">
                 Firstname:
@@ -110,6 +111,13 @@ export class Form extends React.Component<createdCardT> {
               </select>
             </label>
 
+            {/* <label>
+              <input type="radio" name="gender" value="Male" ref={this.gender} /> Man
+            </label>
+            <label>
+              <input type="radio" name="gender" value="Women" ref={this.gender} /> Women
+            </label> */}
+
             <div className="form-item">
               <label>
                 Your birthday in:
@@ -141,8 +149,6 @@ export class Form extends React.Component<createdCardT> {
             <button className="button">Создать карточку</button>
           </form>
         </div>
-
-        <div></div>
       </>
     );
   }
