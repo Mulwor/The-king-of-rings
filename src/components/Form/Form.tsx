@@ -1,7 +1,7 @@
 import React, { FormEvent } from 'react';
 import { TFormList } from 'types';
 
-type createdCardT = {
+export type createdCardT = {
   createdCard: (data: TFormList) => void;
 };
 

@@ -2,9 +2,8 @@ import React from 'react';
 import App from './App';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter, MemoryRouter } from 'react-router-dom';
-import '@testing-library/jest-dom';
+import { Forms } from './pages/Forms/Forms';
 
-// Проверка тесты на оборачивания враппера
 test('Checking whether the App is wrapped in BrowserRouterDom', () => {
   render(<App />, { wrapper: BrowserRouter });
   render(
@@ -14,9 +13,9 @@ test('Checking whether the App is wrapped in BrowserRouterDom', () => {
   );
 });
 
-// Проверка тест на нахождения слова в компоненте
 test('Checking all inside routes in the App class component', () => {
   render(<App />, { wrapper: BrowserRouter });
+
   const findWordInLayout: HTMLElement = screen.getByText(/In recognition of codes/i);
   expect(findWordInLayout).toBeInTheDocument();
 
@@ -29,7 +28,6 @@ test('Checking all inside routes in the App class component', () => {
   expect(anotherLink).toBeInTheDocument();
 });
 
-// Проверка, что по клику выводится ошибка страницы
 test('Checking error page', () => {
   render(
     <MemoryRouter initialEntries={['/fizafazatron']}>
@@ -38,4 +36,12 @@ test('Checking error page', () => {
   );
 
   expect(screen.getByText('Страница недоступна')).toBeInTheDocument();
+});
+
+describe('try to find word in forms', () => {
+  it('Submit button disabled by default', () => {
+    render(<Forms />);
+    const findForm = screen.getByText('Форма');
+    expect(findForm).toBeInTheDocument();
+  });
 });
