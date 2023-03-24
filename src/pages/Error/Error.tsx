@@ -1,5 +1,5 @@
 import React from 'react';
 
-export class Error extends React.Component {
-  render = () => <h1>Страница недоступна</h1>;
+export function Error() {
+  return <h1>Страница недоступна</h1>;
 }

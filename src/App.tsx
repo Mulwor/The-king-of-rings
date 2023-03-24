@@ -7,8 +7,8 @@ import { Error } from './pages/Error/Error';
 import { Forms } from './pages/Forms/Forms';
 import '../src/scss/style.scss';
 
-export class App extends React.Component {
-  render = () => (
+export function App() {
+  return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />

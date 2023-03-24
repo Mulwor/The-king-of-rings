@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, Outlet, NavLink } from 'react-router-dom';
 
-export class Layout extends React.Component {
-  render = () => (
+export function Layout() {
+  return (
     <>
       <header className="header">
         <div className="wrapper">

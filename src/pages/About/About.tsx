@@ -1,7 +1,7 @@
 import React from 'react';
 
-export class About extends React.Component {
-  render = () => (
+export function About() {
+  return (
     <>
       <h2>В главных ролях</h2>
       <div>Джованна Антонелли</div>
