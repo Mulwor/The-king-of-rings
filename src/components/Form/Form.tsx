@@ -5,6 +5,13 @@ type createdCardT = {
   createdCard: (data: TFormList) => void;
 };
 
+// type storeT = {
+//   firstname: string;
+//   errors: {
+//     nameError: string;
+//   };
+// };
+
 export class Form extends React.Component<createdCardT> {
   firstname: React.RefObject<HTMLInputElement>;
   secondname: React.RefObject<HTMLInputElement>;
@@ -38,7 +45,9 @@ export class Form extends React.Component<createdCardT> {
       country: this.country.current!.value,
       gender: this.gender.current!.value,
       date: this.date.current!.value,
-      photo: this.photo.current?.files ? URL.createObjectURL(this.photo.current.files[0]) : '',
+      photo: this.photo.current?.files?.length
+        ? URL.createObjectURL(this.photo.current.files[0])
+        : '',
     };
     this.form.current!.reset();
     this.props.createdCard(cardObj);
@@ -56,14 +65,26 @@ export class Form extends React.Component<createdCardT> {
             <div className="item">
               <label className="labels">
                 Firstname:
-                <input type="text" id="name" className="text firstname" ref={this.firstname} />
+                <input
+                  type="text"
+                  id="name"
+                  className="text firstname"
+                  ref={this.firstname}
+                  required
+                />
               </label>
             </div>
 
             <div className="item">
               <label className="labels">
                 Secondname:
-                <input type="text" id="surname" className="text secondname" ref={this.secondname} />
+                <input
+                  type="text"
+                  id="surname"
+                  className="text secondname"
+                  ref={this.secondname}
+                  required
+                />
               </label>
             </div>
 
@@ -83,7 +104,7 @@ export class Form extends React.Component<createdCardT> {
             <div>
               <label className="country">
                 Where are you from:
-                <select className="choose" ref={this.country}>
+                <select className="choose" ref={this.country} required>
                   <option value="Denmark">Denmark</option>
                   <option value="Russia">Russia</option>
                   <option value="England">England</option>
@@ -104,24 +125,16 @@ export class Form extends React.Component<createdCardT> {
 
             <label>
               Your gender:
-              <select className="gender" ref={this.gender}>
+              <select className="gender" ref={this.gender} required>
                 <option value="Men">Men</option>
                 <option value="Women">Women</option>
                 <option value="It">It</option>
               </select>
             </label>
-
-            {/* <label>
-              <input type="radio" name="gender" value="Male" ref={this.gender} /> Man
-            </label>
-            <label>
-              <input type="radio" name="gender" value="Women" ref={this.gender} /> Women
-            </label> */}
-
             <div className="form-item">
               <label>
                 Your birthday in:
-                <input type="date" className="data" ref={this.date} />
+                <input type="date" className="data" ref={this.date} required />
               </label>
             </div>
 
@@ -140,6 +153,7 @@ export class Form extends React.Component<createdCardT> {
                 value="coding"
                 className="circle"
                 ref={this.agree}
+                required
               />
               <label>
                 Ваши данные будут использованы в умышленных целях и будут переданы в ФБР
