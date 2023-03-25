@@ -1,5 +1,5 @@
 import React from 'react';
-import { TFormList } from 'types';
+import { TFormList } from 'data/types';
 
 export class FormCard extends React.Component<TFormList> {
   render() {

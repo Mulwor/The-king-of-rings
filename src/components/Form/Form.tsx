@@ -1,16 +1,9 @@
 import React, { FormEvent } from 'react';
-import { TFormList } from 'types';
+import { TFormList } from 'data/types';
 
 export type createdCardT = {
   createdCard: (data: TFormList) => void;
 };
-
-// type storeT = {
-//   firstname: string;
-//   errors: {
-//     nameError: string;
-//   };
-// };
 
 export class Form extends React.Component<createdCardT> {
   firstname: React.RefObject<HTMLInputElement>;

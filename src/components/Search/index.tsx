@@ -1,6 +1,6 @@
 import React from 'react';
 import loupe from '../../assets/loupe-svgrepo-com.svg';
-import { State, Unique } from 'types';
+import { State, Unique } from 'data/types';
 
 export class Search extends React.Component<Unique, State> {
   constructor(props: Unique) {

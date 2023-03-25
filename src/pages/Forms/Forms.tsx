@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormList } from '../../components/Form/FormList';
 import { Form } from '../../components/Form/Form';
-import { TFormList, TFormListProps, List } from 'types';
+import { TFormList, TFormListProps, List } from 'data/types';
 
 export class Forms extends React.Component<TFormListProps, List> {
   constructor(props: TFormListProps) {

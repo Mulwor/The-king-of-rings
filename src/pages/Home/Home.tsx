@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 import { Search } from '../../components/Search';
-import { Cards } from '../../components/Cards';
+import { Cards } from '../../components/Cards/Card';
 
 export function Home() {
   return (

@@ -16,6 +16,17 @@ export type TFormList = {
   photo?: string;
 };
 
+export type TCardList = {
+  key: number;
+  name: string;
+  calories: string;
+  protein: string;
+  fiber: string;
+  blubber: string;
+  portion: string;
+  photo: string;
+};
+
 export type TFormListProps = {
   props?: string;
 };
