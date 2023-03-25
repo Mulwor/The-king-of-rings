@@ -22,7 +22,6 @@ export type TCardList = {
   calories: string;
   protein: string;
   fiber: string;
-  blubber: string;
   portion: string;
   photo: string;
 };

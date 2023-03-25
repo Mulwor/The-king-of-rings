@@ -13,7 +13,6 @@ export function Cards() {
             calories={cardDetail.calories}
             protein={cardDetail.protein}
             fiber={cardDetail.fiber}
-            blubber={cardDetail.blubber}
             portion={cardDetail.portion}
             photo={cardDetail.photo}
           />
