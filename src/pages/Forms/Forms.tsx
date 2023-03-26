@@ -1,29 +1,39 @@
 import React from 'react';
 import { FormList } from '../../components/Form/FormList';
 import { Form } from '../../components/Form/Form';
-import { TFormList, TFormListProps, List } from 'data/types';
+import { TFormList, TFormListProps } from 'data/types';
 
-export class Forms extends React.Component<TFormListProps, List> {
-  constructor(props: TFormListProps) {
-    super(props);
-    this.state = {
-      formList: [],
-    };
-  }
+type List = TFormList[];
 
-  createCard = (formList: TFormList) => {
-    this.setState({
-      formList: [formList, ...this.state.formList],
-    });
-    console.log(this.state.formList);
+export function Forms() {
+  const [cartochka, setCartochka] = React.useState<List>([]);
+
+  const createCard = (formList: TFormList) => {
+    setCartochka((prev) => [...prev, formList]);
   };
 
-  render() {
-    return (
-      <div>
-        <Form createdCard={this.createCard} />
-        <FormList formList={this.state.formList} />
-      </div>
-    );
-  }
+  return (
+    <div>
+      <Form createdCard={createCard} />
+      <FormList formList={cartochka} />
+    </div>
+  );
+
+  /*  
+    export function Forms() {
+
+      const [card, setCard] = React.useState([])
+    
+      const createdCard = (cards: List) => {
+        setCard([cards, ...cards])
+      }
+
+      return (
+        <> 
+          <Form createdCard = {createdCard} />
+          <FormList formList = {formList} />
+        </>
+      ) 
+    }
+  */
 }

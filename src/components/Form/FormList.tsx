@@ -2,10 +2,10 @@ import React from 'react';
 import { List } from 'data/types';
 import { FormCard } from './FormCard';
 
-export function FormList(props: List) {
+export function FormList({ formList }: List) {
   return (
     <div>
-      {props.formList.map((list, i) => (
+      {formList.map((list, i) => (
         <FormCard
           key={i}
           firstname={list.firstname}
