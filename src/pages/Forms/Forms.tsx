@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormList } from '../../components/Form/FormList';
 import { Form } from '../../components/Form/Form';
-import { TFormList, TFormListProps } from 'data/types';
+import { TFormList } from 'data/types';
 
 type List = TFormList[];
 
@@ -18,22 +18,4 @@ export function Forms() {
       <FormList formList={cartochka} />
     </div>
   );
-
-  /*  
-    export function Forms() {
-
-      const [card, setCard] = React.useState([])
-    
-      const createdCard = (cards: List) => {
-        setCard([cards, ...cards])
-      }
-
-      return (
-        <> 
-          <Form createdCard = {createdCard} />
-          <FormList formList = {formList} />
-        </>
-      ) 
-    }
-  */
 }
