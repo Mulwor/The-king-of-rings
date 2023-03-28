@@ -6,6 +6,10 @@ import Firstname from './Elements/Firstname';
 import Secondname from './Elements/Secondname';
 import Email from './Elements/Email';
 import Gender from './Elements/Gender';
+import Country from './Elements/Country';
+import Birthday from './Elements/Birthday';
+import UploadPhoto from './Elements/Photo';
+import Agree from './Elements/Agree';
 
 // import Country from './Elements/Country';
 // import Birthday from './Elements/Birthday';
@@ -45,6 +49,10 @@ export function Form(props: createdCardT) {
               <Secondname />
               <Email />
               <Gender />
+              <Country />
+              <Birthday />
+              <UploadPhoto />
+              <Agree />
 
               <button className="buttonas" disabled={!isValid}>
                 Кнопелла

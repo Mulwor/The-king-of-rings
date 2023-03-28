@@ -14,6 +14,7 @@ function Gender() {
         <input
           type="radio"
           id="gender"
+          className="gender"
           value="male"
           {...register('gender', {
             required: 'Choose gender',
@@ -27,7 +28,7 @@ function Gender() {
           {...register('gender', {
             required: 'Choose gender',
           })}
-        />{' '}
+        />
         Female
       </label>
 

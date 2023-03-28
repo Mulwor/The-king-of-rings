@@ -1,0 +1,16 @@
+export const countries = [
+  'Abkhazia',
+  'Australia',
+  'Austria',
+  'Azerbaijan',
+  'Chile',
+  'Switzerland',
+  'Sweden',
+  'Sri Lanka',
+  'Ecuador',
+  'Estonia',
+  'Ethiopia',
+  'South Africa',
+  'Jamaica',
+  'Japan',
+];
