@@ -11,28 +11,17 @@ import Birthday from './Elements/Birthday';
 import UploadPhoto from './Elements/Photo';
 import Agree from './Elements/Agree';
 
-// import Country from './Elements/Country';
-// import Birthday from './Elements/Birthday';
-// import UploadPhoto from './Elements/Photo';
-// import Agree from './Elements/Agree';
-
 export type createdCardT = {
   createdCard: (data: TFormList) => void;
 };
 
 export function Form(props: createdCardT) {
-  const {
-    reset,
-    formState: { isValid },
-  } = useForm({
-    mode: 'onBlur',
-  });
+  const {} = useForm({ mode: 'onBlur' });
 
   const methods = useForm();
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    alert(JSON.stringify(data));
-    reset();
+    console.log(data);
   };
 
   return (
@@ -53,10 +42,7 @@ export function Form(props: createdCardT) {
               <Birthday />
               <UploadPhoto />
               <Agree />
-
-              <button className="buttonas" disabled={!isValid}>
-                Кнопелла
-              </button>
+              <button className="buttonas">Кнопелла</button>
             </div>
           </form>
         </FormProvider>

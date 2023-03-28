@@ -5,7 +5,7 @@ function Firstname() {
   const {
     formState: { errors },
     register,
-  } = useFormContext(); // retrieve all hook methods
+  } = useFormContext();
 
   return (
     <div className="item">
