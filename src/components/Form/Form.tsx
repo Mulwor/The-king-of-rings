@@ -1,11 +1,71 @@
 import React from 'react';
 import { TFormList } from 'data/types';
+import Firstname from './Elements/Firstname';
+import { FieldValues, FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import Secondname from './Elements/Secondname';
+// import Email from './Elements/Email';
+// import Country from './Elements/Country';
+// import Gender from './Elements/Gender';
+// import Birthday from './Elements/Birthday';
+// import UploadPhoto from './Elements/Photo';
+// import Agree from './Elements/Agree';
 
 export type createdCardT = {
   createdCard: (data: TFormList) => void;
 };
 
+export type TRenderError = {
+  required: string;
+  minLength: {
+    value: number;
+    message: string;
+  };
+  pattern: {
+    value: RegExp;
+    message: string;
+  };
+};
+
+const renderError: TRenderError = {
+  required: 'You need to write your name',
+  minLength: {
+    value: 5,
+    message: 'Your name must be at least 5 characters long',
+  },
+  pattern: {
+    value: /^[A-Z][a-zA-Z]+$/,
+    message: 'Should consist of letters and start with uppercase letter',
+  },
+};
+
 export function Form(props: createdCardT) {
+  const {
+    reset,
+    formState: { isValid, errors },
+    register,
+  } = useForm({
+    mode: 'onBlur',
+  });
+
+  const methods = useForm();
+
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    alert(JSON.stringify(data));
+    reset();
+  };
+
+  const renderError: TRenderError = {
+    required: 'You need to write your name',
+    minLength: {
+      value: 5,
+      message: 'Your name must be at least 5 characters long',
+    },
+    pattern: {
+      value: /^[A-Z][a-zA-Z]+$/,
+      message: 'Should consist of letters and start with uppercase letter',
+    },
+  };
+
   return (
     <>
       <div>
@@ -13,86 +73,34 @@ export function Form(props: createdCardT) {
 
         <div>Заполните данную форму, чтобы увидеть свою карточку</div>
 
-        <form className="form">
-          <div className="item">
-            <label className="labels">
-              Firstname:
-              <input type="text" id="name" className="text firstname" required />
-            </label>
-          </div>
+        <FormProvider {...methods}>
+          <form className="form" onSubmit={methods.handleSubmit(onSubmit)}>
+            <div className="item">
+              <Firstname />
+              <button className="button" disabled={!isValid}>
+                Кнопелла
+              </button>
+            </div>
+          </form>
+        </FormProvider>
 
-          <div className="item">
-            <label className="labels">
-              Secondname:
-              <input type="text" id="surname" className="text secondname" required />
-            </label>
-          </div>
+        <Secondname {...register('secondName', { renderError })} />
 
-          <div className="item">
-            <label className="labels">
-              Email:
-              <input type="email" name="email" id="email" className="text email" />
-            </label>
-          </div>
+        <div style={{ height: 30 }}>
+          {errors?.firstName && <p className="error">{errors?.firstName?.message?.toString()}</p>}
+        </div>
+        {/* 
 
-          <div>
-            <label className="country">
-              Where are you from:
-              <select className="choose" required>
-                <option value="Denmark">Denmark</option>
-                <option value="Russia">Russia</option>
-                <option value="England">England</option>
-                <option value="Wales">Wales </option>
-                <option value="United Kingdom">United Kingdom</option>
-                <option value="Belarus">Belarus</option>
-                <option value="Germany">Germany</option>
-                <option value="Belgium">Belgium</option>
-                <option value="Switzerland">Switzerland</option>
-                <option value="Albania">Albania</option>
-                <option value="Portugal">Portugal</option>
-                <option value="Azerbaijan">Azerbaijan</option>
-                <option value="Greece">Greece</option>
-                <option value="Serbia">Serbia</option>
-              </select>
-            </label>
-          </div>
-
-          <label>
-            Your gender:
-            <select className="gender" required>
-              <option value="Men">Men</option>
-              <option value="Women">Women</option>
-              <option value="It">It</option>
-            </select>
-          </label>
-          <div className="form-item">
-            <label>
-              Your birthday in:
-              <input type="date" className="data" required />
-            </label>
-          </div>
-
-          <div className="form-item">
-            <label className="form-photo">
-              Photo:
-              <input type="file" className="photo" required />
-            </label>
-          </div>
-
-          <div>
-            <input
-              type="checkbox"
-              id="coding"
-              name="interest"
-              value="coding"
-              className="circle"
-              required
-            />
-            <label>Ваши данные будут использованы в умышленных целях и будут переданы в ФБР</label>
-          </div>
-
-          <button className="button">Создать карточку</button>
-        </form>
+          <Secondname />
+          <Email />
+          <Country />
+          <Gender />
+          <Birthday />
+          <UploadPhoto />
+          <Agree /> 
+          
+          */}
+        {/* </form> */}
       </div>
     </>
   );
