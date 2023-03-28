@@ -18,18 +18,18 @@ function Firstname() {
           {...register('firstName', {
             required: 'You need to write your name',
             minLength: {
-              value: 5,
-              message: 'Your name must be at least 5 characters long',
+              value: 3,
+              message: 'Your firstname must be more 3 characters',
             },
             pattern: {
               value: /^[A-Z][a-zA-Z]+$/,
-              message: 'Should consist of letters and start with uppercase letter',
+              message: 'Write in uppercase',
             },
           })}
         />
       </label>
 
-      <div style={{ height: 30 }}>
+      <div style={{ height: 20 }}>
         {errors?.firstName && <p className="error">{errors?.firstName?.message?.toString()}</p>}
       </div>
     </div>

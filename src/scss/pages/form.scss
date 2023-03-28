@@ -78,7 +78,7 @@
     border-color: #51c951;
   }
 
-  .button {
+  .buttonas {
     width: 200px;
     height: 41px;
     border-radius: 10px;
@@ -87,7 +87,7 @@
     background: rgb(255, 255, 255);
   }
 
-  .button:hover {
+  .buttonas:hover {
     background-color: #fff;
     color: firebrick;
     border-color: rgb(53, 27, 27);
@@ -101,6 +101,7 @@
 
 .error {
   color: #bf1650;
+  margin-top: 3px;
 }
 
 .error::before {
