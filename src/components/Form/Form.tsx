@@ -29,13 +29,13 @@ export function Form(props: createdCardT) {
       gender: data.gender,
       country: data.country,
       birthday: data.birthday,
-      photo: data.photo,
+      photo: URL.createObjectURL(data.photo[0]),
     };
 
     props.createdCard(dataCard);
 
     setTimeout(() => {
-      // reset();
+      reset();
     }, 500);
   };
 

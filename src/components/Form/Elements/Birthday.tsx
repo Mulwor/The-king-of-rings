@@ -14,12 +14,12 @@ function Birthday() {
         <input
           type="date"
           className="data"
-          {...register('age', {
+          {...register('birthday', {
             required: 'Choose your age',
           })}
         />
         <div style={{ height: 20, width: 300 }}>
-          {errors?.age && <p className="error">{errors?.age?.message?.toString()}</p>}
+          {errors?.birthday && <p className="error">{errors?.birthday?.message?.toString()}</p>}
         </div>
       </label>
     </div>
