@@ -9,7 +9,7 @@ export function Forms() {
   const [cartochka, setCartochka] = React.useState<List>([]);
 
   const createCard = (formList: TFormList) => {
-    setCartochka((prev) => [...prev, formList]);
+    setCartochka((prev) => [formList, ...prev]);
   };
 
   return (

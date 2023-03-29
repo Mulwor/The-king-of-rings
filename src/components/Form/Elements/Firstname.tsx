@@ -15,7 +15,7 @@ function Firstname() {
           type="text"
           id="name"
           className="text firstname"
-          {...register('firstName', {
+          {...register('firstname', {
             required: 'You need to write your name',
             minLength: {
               value: 3,
@@ -23,14 +23,14 @@ function Firstname() {
             },
             pattern: {
               value: /^[A-Z][a-zA-Z]+$/,
-              message: 'Write in uppercase',
+              message: 'Write in uppercase and without numbers',
             },
           })}
         />
       </label>
 
       <div style={{ height: 20 }}>
-        {errors?.firstName && <p className="error">{errors?.firstName?.message?.toString()}</p>}
+        {errors?.firstname && <p className="error">{errors?.firstname?.message?.toString()}</p>}
       </div>
     </div>
   );

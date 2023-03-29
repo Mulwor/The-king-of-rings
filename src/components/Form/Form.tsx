@@ -21,7 +21,22 @@ export function Form(props: createdCardT) {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data);
-    reset();
+
+    const dataCard: TFormList = {
+      firstname: data.firstname,
+      secondname: data.secondname,
+      email: data.email,
+      gender: data.gender,
+      country: data.country,
+      birthday: data.birthday,
+      photo: data.photo,
+    };
+
+    props.createdCard(dataCard);
+
+    setTimeout(() => {
+      // reset();
+    }, 500);
   };
 
   return (

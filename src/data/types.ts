@@ -12,7 +12,7 @@ export type TFormList = {
   email: string;
   country: string;
   gender: string;
-  date: string;
+  birthday: string;
   photo: string;
 };
 

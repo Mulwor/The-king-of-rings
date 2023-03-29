@@ -11,7 +11,7 @@ export function FormCard(props: TFormList) {
         <div>Your cmail: {props.email}</div>
         <div>Your gender: {props.gender}</div>
         <div>Your country: {props.country}</div>
-        <div>Your birthday: {props.date}</div>
+        <div>Your birthday: {props.birthday}</div>
       </div>
     </div>
   );

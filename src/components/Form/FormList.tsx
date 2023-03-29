@@ -13,7 +13,7 @@ export function FormList({ formList }: List) {
           email={list.email}
           gender={list.gender}
           country={list.country}
-          date={list.date}
+          birthday={list.birthday}
           photo={list.photo}
         />
       ))}
