@@ -16,12 +16,12 @@ export type createdCardT = {
 };
 
 export function Form(props: createdCardT) {
-  const {} = useForm({ mode: 'onBlur' });
-
-  const methods = useForm();
+  const methods = useForm({ mode: 'onBlur' });
+  const { reset } = methods;
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data);
+    reset();
   };
 
   return (
