@@ -33,3 +33,21 @@ export type TFormListProps = {
 export type List = {
   formList: TFormList[];
 };
+
+export type CharacterType = {
+  _id: string;
+  wikiUrl: string;
+  spouse: string;
+  realm: string;
+  height: string;
+  race: string;
+  gender: string;
+  birth: string;
+  death: string;
+  hair: string;
+  name: string;
+};
+
+export type CharactersListType = {
+  cards: CharacterType[];
+};

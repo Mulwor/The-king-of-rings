@@ -1,23 +1,17 @@
 import React from 'react';
-import data from '../../data/data.json';
 import CardList from './CardList';
+import { CharactersListType } from 'data/types';
 
-export function Cards() {
+export function Cards(data: CharactersListType) {
   return (
     <div className="container">
-      {data.map((cardDetail, index) => {
-        return (
-          <CardList
-            key={index}
-            name={cardDetail.name}
-            calories={cardDetail.calories}
-            protein={cardDetail.protein}
-            fiber={cardDetail.fiber}
-            portion={cardDetail.portion}
-            photo={cardDetail.photo}
-          />
-        );
-      })}
+      <h3>Отображения кингов оф рингов</h3>
+
+      <span>
+        {data.cards.map((cards) => {
+          return <CardList cards={cards} key={cards._id} />;
+        })}
+      </span>
     </div>
   );
 }
