@@ -1,8 +1,17 @@
 import React from 'react';
 import loupe from '../../assets/loupe-svgrepo-com.svg';
 
-export function Search() {
+export type SearchT = {
+  findCard: (text: string) => void;
+};
+
+export function Search(data: SearchT) {
   const [search, setSearch] = React.useState('');
+
+  function onHandleClick(event: React.FormEvent) {
+    event.preventDefault();
+    data.findCard(search);
+  }
 
   const checkValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
@@ -16,7 +25,7 @@ export function Search() {
   }, []);
 
   return (
-    <div className="input">
+    <form className="input" onSubmit={(e) => onHandleClick(e)}>
       <img className="loops" src={loupe} />
       <input
         value={search}
@@ -25,6 +34,7 @@ export function Search() {
         type="search"
         placeholder="Search ..."
       />
-    </div>
+      <button type="submit">Find card</button>
+    </form>
   );
 }
