@@ -9,7 +9,7 @@ export function Cards(data: CharactersListType) {
 
       <span>
         {data.cards.map((cards) => {
-          return <CardList cards={cards} key={cards._id} />;
+          return <CardList {...cards} key={cards._id} />;
         })}
       </span>
     </div>

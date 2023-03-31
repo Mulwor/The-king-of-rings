@@ -5,12 +5,11 @@ import { Cards } from '../../components/Cards/Card';
 import axios from 'axios';
 import { CharacterType } from 'data/types';
 
-const baseURL = 'https://the-one-api.dev/v2/character?limit=100';
+const baseURL = 'https://the-one-api.dev/v2/character?limit=200';
 const TOKEN = 'u828DLVp0wqOia5kQTP8';
 
 export function Home() {
   const [cards, setCards] = React.useState([]);
-  const [showCard, setShowCard] = React.useState({} as CharacterType);
 
   async function allCards() {
     try {
