@@ -8,11 +8,6 @@ export type SearchT = {
 export function Search(data: SearchT) {
   const [search, setSearch] = React.useState('');
 
-  function onHandleClick(event: React.FormEvent) {
-    event.preventDefault();
-    data.findCard(search);
-  }
-
   const checkValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
     localStorage.setItem('Search', event.target.value);
@@ -24,8 +19,13 @@ export function Search(data: SearchT) {
     }
   }, []);
 
+  function onHandleClick(event: React.FormEvent) {
+    event.preventDefault();
+    data.findCard(search);
+  }
+
   return (
-    <form className="input" onSubmit={(e) => onHandleClick(e)}>
+    <form className="input" onSubmit={(event) => onHandleClick(event)}>
       <img className="loops" src={loupe} />
       <input
         value={search}
@@ -34,7 +34,6 @@ export function Search(data: SearchT) {
         type="search"
         placeholder="Search ..."
       />
-      <button type="submit">Find card</button>
     </form>
   );
 }

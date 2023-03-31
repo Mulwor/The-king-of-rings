@@ -4,24 +4,30 @@ import { Search } from '../../components/Search';
 import { Cards } from '../../components/Cards/Card';
 import axios from 'axios';
 
-const baseURL = 'https://the-one-api.dev/v2';
+const baseURL = 'https://the-one-api.dev/v2/character';
 const uniqueToken = 'u828DLVp0wqOia5kQTP8';
 
 export function Home() {
   const [cards, setCards] = React.useState([]);
 
-  async function findCard(text: string) {
-    const findCardUser = text.toLowerCase();
-
+  async function findCardByName(text: string) {
     try {
       await axios
-        .get(`${baseURL}/character?race=${findCardUser}?limit=100`, {
+        .get(`${baseURL}?name=${text}`, {
           headers: {
             Authorization: `Bearer ${uniqueToken}`,
             Accept: 'application/json',
           },
         })
-        .then((response) => setCards(response.data.docs));
+        .then((response) => {
+          console.log(response);
+          setCards(response.data.docs);
+          console.log(
+            'Статус: ' + response.status,
+            ' и данные, которые пришли',
+            response.data.docs
+          );
+        });
     } catch (error) {
       console.log(error);
     }
@@ -30,7 +36,7 @@ export function Home() {
   async function allCards() {
     try {
       await axios
-        .get(`${baseURL}/character?limit=200`, {
+        .get(`${baseURL}?limit=100`, {
           headers: {
             Authorization: `Bearer ${uniqueToken}`,
             Accept: 'application/json',
@@ -50,8 +56,15 @@ export function Home() {
     <div>
       <h2>Дом, милый дом!</h2>
 
-      <Search findCard={findCard} />
-      {cards.length !== 0 ? <Cards cards={cards} /> : <div>Карточка не найдена</div>}
+      <Search findCard={findCardByName} />
+
+      <h3>Фильтрация происходит по полной имени</h3>
+
+      {cards.length !== 0 ? (
+        <Cards cards={cards} />
+      ) : (
+        <div>Возможно с сервером проблемы, подождите немного</div>
+      )}
     </div>
   );
 }
