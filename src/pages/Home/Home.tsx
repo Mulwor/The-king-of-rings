@@ -13,7 +13,7 @@ export function Home() {
 
   async function allCards() {
     try {
-      const response = await axios
+      await axios
         .get(baseURL, {
           headers: {
             Authorization: `Bearer ${TOKEN}`,
@@ -41,7 +41,9 @@ export function Home() {
     <div>
       <h2>Дом, милый дом!</h2>
       <Search />
-      <>{cards.length !== 0 ? <Cards cards={cards} /> : <div>Карточки не обнаружились</div>}</>
+      <div>
+        {cards.length !== 0 ? <Cards cards={cards} /> : <div>Карточки не обнаружились</div>}
+      </div>
     </div>
   );
 }

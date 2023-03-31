@@ -7,6 +7,8 @@ function CardList(props: CharacterType) {
       <div className="card">
         <div className="box">
           <h2>{props.name}</h2>
+          <div>Gender: {props.gender.toLowerCase()}</div>
+          <div>Race: {props.race.toLowerCase()}</div>
         </div>
       </div>
     </>

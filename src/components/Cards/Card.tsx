@@ -5,13 +5,11 @@ import { CharactersListType } from 'data/types';
 export function Cards(data: CharactersListType) {
   return (
     <div className="container">
-      <h3>Отображения кингов оф рингов</h3>
-
-      <span>
+      <div className="block">
         {data.cards.map((cards) => {
           return <CardList {...cards} key={cards._id} />;
         })}
-      </span>
+      </div>
     </div>
   );
 }
