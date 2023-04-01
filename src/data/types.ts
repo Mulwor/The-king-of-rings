@@ -51,3 +51,7 @@ export type CharacterType = {
 export type CharactersListType = {
   cards: CharacterType[];
 };
+
+export type LoadingType = {
+  loading: boolean;
+};

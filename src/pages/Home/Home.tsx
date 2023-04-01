@@ -3,14 +3,17 @@ import './index.css';
 import { Search } from '../../components/Search';
 import { Cards } from '../../components/Cards/Card';
 import axios from 'axios';
+import Preloader from '../../components/Preloading';
 
 const baseURL = 'https://the-one-api.dev/v2/character';
 const uniqueToken = 'u828DLVp0wqOia5kQTP8';
 
 export function Home() {
   const [cards, setCards] = React.useState([]);
+  const [loading, setLoading] = React.useState(false);
 
   async function findCardByName(text: string) {
+    setLoading(false);
     try {
       await axios
         .get(`${baseURL}?name=${text}`, {
@@ -27,6 +30,7 @@ export function Home() {
             ' и данные, которые пришли',
             response.data.docs
           );
+          setLoading(true);
         });
     } catch (error) {
       console.log(error);
@@ -34,6 +38,7 @@ export function Home() {
   }
 
   async function allCards() {
+    setLoading(false);
     try {
       await axios
         .get(`${baseURL}?limit=100`, {
@@ -43,6 +48,7 @@ export function Home() {
           },
         })
         .then((response) => setCards(response.data.docs));
+      setLoading(true);
     } catch (error) {
       console.log(error);
     }
@@ -59,6 +65,8 @@ export function Home() {
       <Search findCard={findCardByName} />
 
       <h3>Фильтрация происходит по полной имени</h3>
+
+      <Preloader loading={loading} />
 
       {cards.length !== 0 ? (
         <Cards cards={cards} />
