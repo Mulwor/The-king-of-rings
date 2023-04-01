@@ -1,8 +1,8 @@
 import React from 'react';
 import CardList from './CardList';
-import { CharactersListType } from 'data/types';
+import { TCharactersList } from 'data/types';
 
-export function Cards(data: CharactersListType) {
+export function Cards(data: TCharactersList) {
   return (
     <div className="container">
       <div className="block">

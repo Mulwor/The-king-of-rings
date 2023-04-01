@@ -8,11 +8,11 @@ export type TFormList = {
   photo: string;
 };
 
-export type List = {
+export type TList = {
   formList: TFormList[];
 };
 
-export type CharacterType = {
+export type TCharacter = {
   _id: string;
   wikiUrl: string;
   spouse: string;
@@ -26,10 +26,10 @@ export type CharacterType = {
   name: string;
 };
 
-export type CharactersListType = {
-  cards: CharacterType[];
+export type TCharactersList = {
+  cards: TCharacter[];
 };
 
-export type LoadingType = {
+export type TLoading = {
   loading: boolean;
 };

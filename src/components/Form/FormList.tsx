@@ -1,8 +1,8 @@
 import React from 'react';
-import { List } from 'data/types';
+import { TList } from 'data/types';
 import { FormCard } from './FormCard';
 
-export function FormList({ formList }: List) {
+export function FormList({ formList }: TList) {
   return (
     <div>
       {formList.map((list, i) => (

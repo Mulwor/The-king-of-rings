@@ -1,7 +1,7 @@
 import React from 'react';
-import { LoadingType } from 'data/types';
+import { TLoading } from 'data/types';
 
-function Preloader({ loading }: LoadingType) {
+function Preloader({ loading }: TLoading) {
   return (
     <div>
       {!loading && (

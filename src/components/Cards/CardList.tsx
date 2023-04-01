@@ -1,7 +1,7 @@
 import React from 'react';
-import { CharacterType } from 'data/types';
+import { TCharacter } from 'data/types';
 
-function CardList(props: CharacterType) {
+function CardList(props: TCharacter) {
   return (
     <>
       <div className="card">
