@@ -1,9 +1,10 @@
 import React from 'react';
 import './index.css';
+import axios from 'axios';
 import { Search } from '../../components/Search';
 import { Cards } from '../../components/Cards/Card';
-import axios from 'axios';
 import Preloader from '../../components/Preloading';
+import ModalWindow from '../../components/Modal';
 
 const baseURL = 'https://the-one-api.dev/v2/character';
 const uniqueToken = 'u828DLVp0wqOia5kQTP8';
@@ -23,13 +24,8 @@ export function Home() {
           },
         })
         .then((response) => {
-          console.log(response);
           setCards(response.data.docs);
-          console.log(
-            'Статус: ' + response.status,
-            ' и данные, которые пришли',
-            response.data.docs
-          );
+          // console.log('Статус: ' + response.status, 'ответ: ', response.data.docs);
           setLoading(true);
         });
     } catch (error) {
@@ -47,8 +43,10 @@ export function Home() {
             Accept: 'application/json',
           },
         })
-        .then((response) => setCards(response.data.docs));
-      setLoading(true);
+        .then((response) => {
+          setCards(response.data.docs);
+          setLoading(true);
+        });
     } catch (error) {
       console.log(error);
     }
@@ -73,6 +71,8 @@ export function Home() {
       ) : (
         <div>Возможно с сервером проблемы, подождите немного</div>
       )}
+
+      <ModalWindow />
     </div>
   );
 }
