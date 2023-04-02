@@ -1,13 +1,18 @@
 import React from 'react';
-import { TList } from 'data/types';
 import { FormCard } from './FormCard';
+import { v1 } from 'uuid';
+import { FormItem } from 'data/types';
 
-export function FormList({ formList }: TList) {
+type CardListProps = {
+  formList: FormItem[];
+};
+
+export function CardList({ formList }: CardListProps) {
   return (
     <div>
-      {formList.map((list, i) => (
+      {formList.map((list) => (
         <FormCard
-          key={i}
+          key={v1()}
           firstname={list.firstname}
           secondname={list.secondname}
           email={list.email}

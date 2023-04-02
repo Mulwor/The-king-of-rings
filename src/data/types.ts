@@ -1,4 +1,4 @@
-export type TFormList = {
+export type FormItem = {
   firstname: string;
   secondname: string;
   email: string;
@@ -8,9 +8,9 @@ export type TFormList = {
   photo: string;
 };
 
-export type TList = {
-  formList: TFormList[];
-};
+export interface FormValues extends Omit<FormItem, 'photo'> {
+  photo: FileList;
+}
 
 export type TCharacter = {
   _id: string;

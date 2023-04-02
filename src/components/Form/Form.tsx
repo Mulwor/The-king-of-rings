@@ -1,6 +1,5 @@
 import React from 'react';
 import { FieldValues, FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import { TFormList } from 'data/types';
 
 import Firstname from '../FormItems/Firstname';
 import Secondname from '../FormItems/Secondname';
@@ -10,29 +9,24 @@ import Country from '../FormItems/Country';
 import Birthday from '../FormItems/Birthday';
 import UploadPhoto from '../FormItems/Photo';
 import Agree from '../FormItems/Agree';
+import { FormItem, FormValues } from 'data/types';
 
 export type createdCardT = {
-  createdCard: (data: TFormList) => void;
+  createCard: (data: FormItem) => void;
 };
 
 export function Form(props: createdCardT) {
-  const methods = useForm({ mode: 'onBlur' });
+  const methods = useForm<FormValues>({ mode: 'onBlur' });
   const { reset } = methods;
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
-
-    const dataCard: TFormList = {
-      firstname: data.firstname,
-      secondname: data.secondname,
-      email: data.email,
-      gender: data.gender,
-      country: data.country,
-      birthday: data.birthday,
-      photo: URL.createObjectURL(data.photo[0]),
+  const onSubmit: SubmitHandler<FormValues> = ({ photo, ...data }) => {
+    console.log(photo);
+    const dataCard: FormItem = {
+      ...data,
+      photo: URL.createObjectURL(photo[0]),
     };
 
-    props.createdCard(dataCard);
+    props.createCard(dataCard);
 
     setTimeout(() => {
       reset();

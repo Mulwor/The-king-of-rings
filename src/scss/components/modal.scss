@@ -1,0 +1,50 @@
+.modal__btn {
+  padding: 20px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 10px;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+  background-color: #f1faee;
+  color: #1d3557;
+}
+
+.modal__btn:hover {
+  background-color: #e63946;
+  color: #f1faee;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  opacity: 0;
+  visibility: hidden;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #fefae0;
+  transition: 0.3s ease;
+}
+
+.modal__wrapper {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal__wrapper.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal__wrapper.show .modal {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  visibility: visible;
+}
+
+.close-btn {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}

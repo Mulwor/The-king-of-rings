@@ -1,7 +1,7 @@
 import React from 'react';
-import { TFormList } from 'data/types';
+import { FormItem } from 'data/types';
 
-export function FormCard(props: TFormList) {
+export function FormCard(props: FormItem) {
   return (
     <div className="ford">
       <div className="wrapper">
