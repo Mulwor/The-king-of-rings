@@ -3,7 +3,7 @@ import { CharacterItem } from 'data/types';
 import { createPortal } from 'react-dom';
 import Modals from '../../components/Modal/Modals';
 
-function CardList(props: CharacterItem) {
+function CardList({ ...item }: CharacterItem) {
   const [showModal, setShowModal] = React.useState(false);
 
   return (
@@ -11,27 +11,12 @@ function CardList(props: CharacterItem) {
       <div className="card">
         <div className="box">
           <div onClick={() => setShowModal(true)}>
-            <h2>{props.name}</h2>
-            <div>Gender: {props.gender}</div>
-            <div>Race: {props.race}</div>
+            <h2>{item.name}</h2>
+            <div>Gender: {item.gender}</div>
+            <div>Race: {item.race}</div>
           </div>
           {showModal &&
-            createPortal(
-              <Modals
-                onClose={() => setShowModal(false)}
-                name={props.name}
-                wikiUrl={props.wikiUrl}
-                spouse={props.spouse}
-                realm={props.realm}
-                height={props.height}
-                race={props.race}
-                gender={props.gender}
-                birth={props.birth}
-                death={props.death}
-                hair={props.hair}
-              />,
-              document.body
-            )}
+            createPortal(<Modals onClose={() => setShowModal(false)} {...item} />, document.body)}
         </div>
       </div>
     </>

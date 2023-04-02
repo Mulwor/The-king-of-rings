@@ -2,16 +2,12 @@ import React from 'react';
 
 export interface CharacterItem {
   onClose: () => void;
-  wikiUrl: string;
-  spouse: string;
-  realm: string;
-  height: string;
-  race: string;
+  name: string;
   gender: string;
+  wikiUrl: string;
+  race: string;
   birth: string;
   death: string;
-  hair: string;
-  name: string;
 }
 
 function Modals(item: CharacterItem) {

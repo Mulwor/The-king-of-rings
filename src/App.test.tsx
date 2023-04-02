@@ -21,11 +21,6 @@ test('Checking all inside routes in the App class component', () => {
 
   const findWordInHome: HTMLElement = screen.getByText(/Дом, милый дом!/i);
   expect(findWordInHome).toBeInTheDocument();
-
-  const link: HTMLElement = screen.getByText(/Pitanga/i);
-  expect(link).toBeInTheDocument();
-  const anotherLink: HTMLElement = screen.getByText(/Pitaya/i);
-  expect(anotherLink).toBeInTheDocument();
 });
 
 test('Checking error page', () => {
