@@ -1,50 +1,35 @@
-.modal__btn {
-  padding: 20px;
-  font-size: 1.5rem;
-  border: none;
-  border-radius: 10px;
-  text-transform: uppercase;
-  transition: 0.3s ease;
-  background-color: #f1faee;
-  color: #1d3557;
-}
-
-.modal__btn:hover {
-  background-color: #e63946;
-  color: #f1faee;
+.clipping-container {
+  position: relative;
+  border: 1px solid #aaa;
+  margin-bottom: 12px;
+  padding: 12px;
+  width: 250px;
+  height: 80px;
+  overflow: hidden;
 }
 
 .modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -30%);
-  opacity: 0;
-  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+  background-color: white;
+  border: 2px solid rgb(240, 240, 240);
+  border-radius: 12px;
+  position: fixed;
+  width: 400px;
   padding: 30px;
-  border-radius: 10px;
-  background-color: #fefae0;
-  transition: 0.3s ease;
+  top: 30%;
+  left: 30%;
 }
 
-.modal__wrapper {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.modal__wrapper.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-.modal__wrapper.show .modal {
-  transform: translate(-50%, -50%);
-  opacity: 1;
-  visibility: visible;
-}
-
-.close-btn {
+.buttonela {
+  cursor: pointer;
+  width: 2rem;
+  border-radius: 30px;
+  height: 2rem;
   position: absolute;
-  right: 5px;
-  top: 5px;
+  top: -22px;
+  left: 28rem;
+  border: none;
+  background-color: red;
 }

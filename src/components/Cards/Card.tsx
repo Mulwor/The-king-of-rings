@@ -1,6 +1,10 @@
 import React from 'react';
 import CardList from './CardList';
-import { CharactersListProps } from 'data/types';
+import { CharacterItem } from 'data/types';
+
+export interface CharactersListProps {
+  cards: CharacterItem[];
+}
 
 export function Cards(data: CharactersListProps) {
   return (
