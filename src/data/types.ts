@@ -1,4 +1,5 @@
 export type FormItem = {
+  id: string;
   firstname: string;
   secondname: string;
   email: string;
@@ -8,7 +9,7 @@ export type FormItem = {
   photo: string;
 };
 
-export interface FormValues extends Omit<FormItem, 'photo'> {
+export interface FormValues extends Omit<FormItem, 'photo' | 'id'> {
   photo: FileList;
 }
 

@@ -10,6 +10,7 @@ import Birthday from '../FormItems/Birthday';
 import UploadPhoto from '../FormItems/Photo';
 import Agree from '../FormItems/Agree';
 import { FormItem, FormValues } from 'data/types';
+import { v4 } from 'uuid';
 
 export type createdCardT = {
   createCard: (data: FormItem) => void;
@@ -23,6 +24,7 @@ export function Form(props: createdCardT) {
     console.log(photo);
     const dataCard: FormItem = {
       ...data,
+      id: v4(),
       photo: URL.createObjectURL(photo[0]),
     };
 
