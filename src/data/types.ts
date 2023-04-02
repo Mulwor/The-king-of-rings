@@ -1,4 +1,4 @@
-export type FormItem = {
+export interface FormItem {
   id: string;
   firstname: string;
   secondname: string;
@@ -7,13 +7,13 @@ export type FormItem = {
   gender: string;
   birthday: string;
   photo: string;
-};
+}
 
 export interface FormValues extends Omit<FormItem, 'photo' | 'id'> {
   photo: FileList;
 }
 
-export type TCharacter = {
+export interface CharacterItem {
   _id: string;
   wikiUrl: string;
   spouse: string;
@@ -25,12 +25,12 @@ export type TCharacter = {
   death: string;
   hair: string;
   name: string;
-};
+}
 
-export type TCharactersList = {
-  cards: TCharacter[];
-};
+export interface CharactersListProps {
+  cards: CharacterItem[];
+}
 
-export type TLoading = {
+export interface TLoading {
   loading: boolean;
-};
+}

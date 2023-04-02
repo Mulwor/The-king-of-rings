@@ -1,5 +1,6 @@
 import React from 'react';
-import { FieldValues, FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { v4 } from 'uuid';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 
 import Firstname from '../FormItems/Firstname';
 import Secondname from '../FormItems/Secondname';
@@ -10,7 +11,6 @@ import Birthday from '../FormItems/Birthday';
 import UploadPhoto from '../FormItems/Photo';
 import Agree from '../FormItems/Agree';
 import { FormItem, FormValues } from 'data/types';
-import { v4 } from 'uuid';
 
 export type createdCardT = {
   createCard: (data: FormItem) => void;

@@ -4,8 +4,6 @@ import axios from 'axios';
 import { Search } from '../../components/Search';
 import { Cards } from '../../components/Cards/Card';
 import Preloader from '../../components/Preloading';
-import ModalWindow from '../../components/Modal';
-import { TCharacter } from 'data/types';
 
 const baseURL = 'https://the-one-api.dev/v2/character';
 const uniqueToken = 'u828DLVp0wqOia5kQTP8';
@@ -13,9 +11,6 @@ const uniqueToken = 'u828DLVp0wqOia5kQTP8';
 export function Home() {
   const [cards, setCards] = React.useState([]);
   const [isLoading, setLoading] = React.useState(false);
-
-  // * Для модального окна карточки
-  const [showPopup, setShowPopup] = React.useState(false);
 
   async function findCardByName(text: string) {
     setLoading(false);
@@ -76,8 +71,6 @@ export function Home() {
       ) : (
         <div>Возможно с сервером проблемы, подождите немного или посмотреите в консоль</div>
       )}
-
-      {/* Сюда надо передать данные:     <ModalWindow profile={profile} closeModal={closeModal} /> */}
     </div>
   );
 }
