@@ -61,7 +61,7 @@ export function Home() {
 
       <Search findCard={findCardByName} />
 
-      <h3>Фильтрация происходит по полной имени</h3>
+      <h3>Фильтрация происходит по полному имени</h3>
 
       <Preloader loading={isLoading} />
 
