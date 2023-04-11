@@ -34,7 +34,6 @@ export function Home() {
             },
           })
           .then((response) => {
-            console.log(response.data.docs);
             dispatch(setSearchResult(response.data.docs));
             setLoading(true);
           });
@@ -42,7 +41,6 @@ export function Home() {
         console.log(error);
       }
     }
-
     allCards();
   }, [dispatch, searchValue]);
 
