@@ -23,7 +23,11 @@ export function Home() {
       setLoading(false);
       try {
         await axios
-          .get(`${baseURL}?limit=100&name=${searchValue}`, {
+          .get(`${baseURL}`, {
+            params: {
+              limit: 100,
+              name: searchValue,
+            },
             headers: {
               Authorization: `Bearer ${uniqueToken}`,
               Accept: 'application/json',
