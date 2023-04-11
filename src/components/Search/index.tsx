@@ -4,11 +4,7 @@ import { useAppSelector } from '../../hooks/useRedux';
 import { useDispatch } from 'react-redux';
 import { setSearchValue } from '../../store/slices/searchResultSlice';
 
-export type SearchT = {
-  findCard: (text: string) => void;
-};
-
-export function Search(data: SearchT) {
+export function Search() {
   const search = useAppSelector((state) => state.searchText.searchValue);
   const dispatch = useDispatch();
 
@@ -19,7 +15,6 @@ export function Search(data: SearchT) {
 
   function onHandleClick(event: React.FormEvent) {
     event.preventDefault();
-    data.findCard(search);
   }
 
   return (
