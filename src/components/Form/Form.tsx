@@ -11,18 +11,17 @@ import Birthday from '../FormItems/Birthday';
 import UploadPhoto from '../FormItems/Photo';
 import Agree from '../FormItems/Agree';
 import { FormItem, FormValues } from 'data/types';
-import { useDispatch } from 'react-redux';
 import { generateCard } from '../../store/slices/cardSlice';
+import { useDispatch } from 'react-redux';
 
 export type createdCardT = {
   createCard: (data: FormItem) => void;
 };
 
 export function Form() {
-  const dispatch = useDispatch();
-
   const methods = useForm<FormValues>({ mode: 'onBlur' });
   const { reset } = methods;
+  const dispatch = useDispatch();
 
   const onSubmit: SubmitHandler<FormValues> = ({ photo, ...data }) => {
     dispatch(
