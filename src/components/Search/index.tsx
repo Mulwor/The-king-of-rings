@@ -2,7 +2,7 @@ import React from 'react';
 import loupe from '../../assets/loupe-svgrepo-com.svg';
 import { useAppSelector } from '../../hooks/useRedux';
 import { useDispatch } from 'react-redux';
-import { setSearchValue } from '../../store/slices/searchResultSlice';
+import { setSearchValue } from '../../store/slices/searchSlice';
 
 export function Search() {
   const search = useAppSelector((state) => state.searchText.searchValue);

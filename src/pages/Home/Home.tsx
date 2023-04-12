@@ -6,7 +6,7 @@ import { Cards } from '../../components/Cards/Card';
 import Preloader from '../../components/Preloading';
 import { useAppSelector } from '../../hooks/useRedux';
 import { useDispatch } from 'react-redux';
-import { setSearchResult } from '../../store/slices/searchResultSlice';
+import { setSearchResult } from '../../store/slices/searchSlice';
 
 const baseURL = 'https://the-one-api.dev/v2/character';
 const uniqueToken = 'u828DLVp0wqOia5kQTP8';

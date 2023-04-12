@@ -11,24 +11,27 @@ import Birthday from '../FormItems/Birthday';
 import UploadPhoto from '../FormItems/Photo';
 import Agree from '../FormItems/Agree';
 import { FormItem, FormValues } from 'data/types';
+import { useDispatch } from 'react-redux';
+import { generateCard } from '../../store/slices/cardSlice';
 
 export type createdCardT = {
   createCard: (data: FormItem) => void;
 };
 
-export function Form(props: createdCardT) {
+export function Form() {
+  const dispatch = useDispatch();
+
   const methods = useForm<FormValues>({ mode: 'onBlur' });
   const { reset } = methods;
 
   const onSubmit: SubmitHandler<FormValues> = ({ photo, ...data }) => {
-    console.log(photo);
-    const dataCard: FormItem = {
-      ...data,
-      id: v4(),
-      photo: URL.createObjectURL(photo[0]),
-    };
-
-    props.createCard(dataCard);
+    dispatch(
+      generateCard({
+        ...data,
+        id: v4(),
+        photo: URL.createObjectURL(photo[0]),
+      })
+    );
 
     setTimeout(() => {
       reset();

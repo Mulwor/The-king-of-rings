@@ -1,15 +1,12 @@
 import React from 'react';
 import { FormCard } from './FormCard';
-import { FormItem } from 'data/types';
+import { useAppSelector } from '../../hooks/useRedux';
 
-type CardListProps = {
-  formList: FormItem[];
-};
-
-export function CardList({ formList }: CardListProps) {
+export function CardList() {
+  const results = useAppSelector((state) => state.generateCard.results);
   return (
     <div>
-      {formList.map((item) => (
+      {results.map((item) => (
         <FormCard key={item.id} {...item} />
       ))}
     </div>
