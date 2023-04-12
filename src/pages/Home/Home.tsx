@@ -7,6 +7,7 @@ import Preloader from '../../components/Preloading';
 import { useAppSelector } from '../../hooks/useRedux';
 import { useDispatch } from 'react-redux';
 import { setSearchResult } from '../../store/slices/searchSlice';
+import { useGetCardQuery } from '../../store/slices/apiSlice';
 
 const baseURL = 'https://the-one-api.dev/v2/character';
 const uniqueToken = 'u828DLVp0wqOia5kQTP8';
@@ -17,6 +18,9 @@ export function Home() {
   const dispatch = useDispatch();
 
   const [isLoading, setLoading] = React.useState(false);
+
+  // const { data: allCards } = useGetCardQuery(searchValue);
+  // console.log(allCards);
 
   React.useEffect(() => {
     async function allCards() {
