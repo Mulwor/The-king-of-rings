@@ -3,14 +3,14 @@ import CardList from './CardList';
 import { CharacterItem } from 'data/types';
 
 export interface CharactersListProps {
-  cards: CharacterItem[];
+  data: CharacterItem[];
 }
 
-export function Cards(data: CharactersListProps) {
+export function Cards(props: CharactersListProps) {
   return (
     <div className="container">
       <div className="block">
-        {data.cards.map((cards) => {
+        {props.data.map((cards) => {
           return <CardList {...cards} key={cards._id} />;
         })}
       </div>

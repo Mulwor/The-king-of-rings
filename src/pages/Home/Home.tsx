@@ -15,38 +15,36 @@ const uniqueToken = 'u828DLVp0wqOia5kQTP8';
 export function Home() {
   const results = useAppSelector((state) => state.searchText.results);
   const searchValue = useAppSelector((state) => state.searchText.searchValue);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const [isLoading, setLoading] = React.useState(false);
+  const { data, isLoading } = useGetCardQuery(searchValue);
+  console.log(data);
 
-  // const { data: allCards } = useGetCardQuery(searchValue);
-  // console.log(allCards);
-
-  React.useEffect(() => {
-    async function allCards() {
-      setLoading(false);
-      try {
-        await axios
-          .get(`${baseURL}`, {
-            params: {
-              limit: 100,
-              name: searchValue,
-            },
-            headers: {
-              Authorization: `Bearer ${uniqueToken}`,
-              Accept: 'application/json',
-            },
-          })
-          .then((response) => {
-            dispatch(setSearchResult(response.data.docs));
-            setLoading(true);
-          });
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    allCards();
-  }, [dispatch, searchValue]);
+  // React.useEffect(() => {
+  //   async function allCards() {
+  //     setLoading(false);
+  //     try {
+  //       await axios
+  //         .get(`${baseURL}`, {
+  //           params: {
+  //             limit: 100,
+  //             name: searchValue,
+  //           },
+  //           headers: {
+  //             Authorization: `Bearer ${uniqueToken}`,
+  //             Accept: 'application/json',
+  //           },
+  //         })
+  //         .then((response) => {
+  //           dispatch(setSearchResult(response.data.docs));
+  //           setLoading(true);
+  //         });
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  //   allCards();
+  // }, [dispatch, searchValue]);
 
   return (
     <div>
@@ -55,7 +53,7 @@ export function Home() {
       <h3>Фильтрация происходит по полному имени</h3>
       <Preloader loading={isLoading} />
       {results.length > 0 ? (
-        <Cards cards={results} />
+        <Cards results={data} />
       ) : (
         <div>Возможно с сервером проблемы, подождите немного или посмотреите в консоль</div>
       )}
