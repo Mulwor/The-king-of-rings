@@ -1,0 +1,105 @@
+.form {
+  color: rgb(0, 0, 0);
+  background-image: linear-gradient(to left, #004d7a, #00bf72, #a8eb12);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+  border-radius: 10px;
+  border-top-left-radius: 0px;
+  box-shadow: 10px 10px 2px 1px rgba(0, 0, 255, 0.2);
+  padding-left: 12px;
+
+  .text {
+    border-radius: 6px;
+    border-color: rgb(0, 149, 255);
+  }
+
+  .text:focus {
+    color: rgb(56, 56, 100);
+    border-color: rgb(0, 149, 255);
+  }
+
+  .firstname {
+    margin-left: 27px;
+  }
+
+  .secondname {
+    margin-left: 11px;
+  }
+
+  .email {
+    margin-left: 55px;
+  }
+
+  .choose {
+    margin-left: 24px;
+  }
+
+  .gender {
+    margin-left: 59px;
+  }
+
+  .firstname,
+  .secondname,
+  .email,
+  .choose,
+  .gender {
+    text-align: center;
+    border: none;
+  }
+
+  .firstname:focus,
+  .secondname:focus,
+  .email:focus,
+  .choose:focus,
+  .gender:focus {
+    background-color: #fff;
+    border-color: #e7dbcc;
+    outline: none;
+    box-shadow: 0 0 0 1px #e8c291 inset;
+  }
+
+  .data {
+    margin-left: 50px;
+  }
+
+  .choose {
+    border-radius: 5px;
+    text-align: center;
+    border-color: #51c951;
+  }
+
+  .buttonas {
+    width: 200px;
+    height: 41px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: rgb(255, 255, 255);
+  }
+
+  .buttonas:hover {
+    background-color: #fff;
+    color: firebrick;
+    border-color: rgb(53, 27, 27);
+    box-shadow: 0 0 0 1px #e8c291 inset;
+  }
+
+  .circle {
+    background-color: #000000;
+  }
+}
+
+.error {
+  color: #bf1650;
+  margin-top: 3px;
+}
+
+.error::before {
+  display: inline;
+  content: "⚠ ";
+}

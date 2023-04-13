@@ -1,0 +1,17 @@
+.ford {
+  display: flex;
+  flex-direction: row;
+
+  .wrapper {  
+    margin-top: 20px;
+    width: 250px;
+    background-image: linear-gradient(to top, #03c9db, #0ddf8b, #aeff00);
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 19px;
+
+    .avatar {
+      width: 250px;
+    }
+  }
+}
