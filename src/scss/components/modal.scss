@@ -1,0 +1,45 @@
+.clipping-container {
+  position: relative;
+  border: 1px solid #aaa;
+  margin-bottom: 12px;
+  padding: 12px;
+  width: 250px;
+  height: 80px;
+  overflow: hidden;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+  background-color: white;
+  border: 2px solid rgb(240, 240, 240);
+  border-radius: 12px;
+  position: fixed;
+  width: 400px;
+  padding: 30px;
+  top: 30%;
+  left: 30%;
+}
+
+.buttonela {
+  cursor: pointer;
+  width: 2rem;
+  border-radius: 30px;
+  height: 2rem;
+  position: absolute;
+  top: -22px;
+  left: 28rem;
+  border: none;
+  background-color: red;
+}
+
+.modalwrap{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vw;
+  cursor: pointer;
+}
