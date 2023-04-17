@@ -1,6 +1,6 @@
 import React from 'react';
 import App from './App';
-import { getAllByText, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { Forms } from './pages/Forms/Forms';

@@ -10,7 +10,6 @@ export function Search() {
 
   const checkValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setSearchValue(event.target.value));
-    localStorage.setItem('Search', event.target.value);
   };
 
   function onHandleClick(event: React.FormEvent) {
